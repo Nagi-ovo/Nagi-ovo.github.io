@@ -1,0 +1,11 @@
+.hidden-text {
+  background-color: black;
+  color: black;
+  padding: 0.5px 2px;  /* 调整上下和左右的padding */
+  display: inline-block;  /* 使padding在上下生效 */
+  transition: color 0.3s;
+}
+
+.hidden-text:hover {
+  color: white;
+}
