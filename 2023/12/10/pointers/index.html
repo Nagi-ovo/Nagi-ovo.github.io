@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>pointers | Nagi-ovo</title><meta name="author" content="Jesse Zhang"><meta name="copyright" content="Jesse Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="概念概述 首先，必须要弄明白C语言中的“变量类型”是什么。 其实它就是变量名前面的内容，又叫关键字。 比如int *p，那变量类型就是int *，即一个指向int类型的地址的指针。 同理，char *s; 声明了一个类型为 char * 的指针变量 s，它可以存储一个 char 类型变量（通常是一个字符数组或字符串）的地址。 明白了这点，语法理解层面就会减少很多困难了。 指针  类比：将指针想象成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pointers">
+<meta property="og:url" content="https://nagi.fun/2023/12/10/pointers/index.html">
+<meta property="og:site_name" content="Nagi-ovo">
+<meta property="og:description" content="概念概述 首先，必须要弄明白C语言中的“变量类型”是什么。 其实它就是变量名前面的内容，又叫关键字。 比如int *p，那变量类型就是int *，即一个指向int类型的地址的指针。 同理，char *s; 声明了一个类型为 char * 的指针变量 s，它可以存储一个 char 类型变量（通常是一个字符数组或字符串）的地址。 明白了这点，语法理解层面就会减少很多困难了。 指针  类比：将指针想象成">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/himmel_1.jpg">
+<meta property="article:published_time" content="2023-12-10T13:16:05.000Z">
+<meta property="article:modified_time" content="2023-12-10T13:16:43.833Z">
+<meta property="article:author" content="Jesse Zhang">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/himmel_1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://nagi.fun/2023/12/10/pointers/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'pointers',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-10 21:16:43'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" type="text/css" href="/css/hidden-text-style.css""><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/avatar_sonny.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-lines-leaning"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weekly/"><i class="fa-fw fas fa-newspaper"></i><span> 周报</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/himmel_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Nagi-ovo"><img class="site-icon" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/avatar_sonny.jpg"/><span class="site-name">Nagi-ovo</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fas fa-lines-leaning"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/weekly/"><i class="fa-fw fas fa-newspaper"></i><span> 周报</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">pointers<a class="post-edit-link" href="null_posts/pointers.md" title="Edited on" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-12-10T13:16:05.000Z" title="Created 2023-12-10 21:16:05">2023-12-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-12-10T13:16:43.833Z" title="Updated 2023-12-10 21:16:43">2023-12-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>6mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="pointers"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="概念概述">概念概述</h2>
+<p>首先，必须要弄明白C语言中的“变量类型”是什么。</p>
+<p>其实它就是变量名前面的内容，又叫关键字。</p>
+<p>比如<code>int *p</code>，那变量类型就是<code>int *</code>，即一个指向int类型的地址的指针。</p>
+<p>同理，<code>char *s;</code> 声明了一个类型为 <code>char *</code> 的指针变量 <code>s</code>，它可以存储一个 <code>char</code> 类型变量（通常是一个字符数组或字符串）的地址。</p>
+<p>明白了这点，语法理解层面就会减少很多困难了。</p>
+<h3 id="指针">指针</h3>
+<ul>
+<li><strong>类比</strong>：将指针想象成书中的书签。它不包含书的内容，但指向特定的页面。</li>
+<li><strong>在C语言中</strong>：指针是一个变量，它存储另一个变量的内存地址。例如，<code>int *p;</code> 意味着 <code>p</code> 是指向 <code>int</code> 类型的指针。</li>
+</ul>
+<h3 id="数组">数组</h3>
+<ul>
+<li><strong>类比</strong>：数组就像一排排的储物柜，每个储物柜都有唯一的编号。</li>
+<li><strong>在C语言中</strong>：数组是在连续的内存位置上放置的相同类型元素的集合。例如，<code>int arr[5];</code> 创建了一个可以存储5个整数的数组。</li>
+</ul>
+<h3 id="字符串">字符串</h3>
+<ul>
+<li><strong>类比</strong>：字符串就像一串项链，每颗珠子代表一个字符。项链以一个特殊的珠子（空字符）结束。</li>
+<li><strong>在C语言中</strong>：字符串是以空字符（<code>\0</code>）结束的字符数组。例如，<code>char str[] = &quot;Hello&quot;;</code>。</li>
+</ul>
+<h2 id="指针、数组和字符串的互联">指针、数组和字符串的互联</h2>
+<h3 id="使用指针与数组">使用指针与数组</h3>
+<ul>
+<li><strong>例子</strong>：如果 <code>arr</code> 是一个数组，那么 <code>arr</code> 和 <code>&amp;arr[0]</code> 是等价的——都指向第一个元素。</li>
+<li><strong>访问元素</strong>：<code>arr[i]</code> 等同于 <code>*(arr + i)</code>。使用指针运算，你可以在数组中进行导航。</li>
+</ul>
+<h3 id="将字符串视为指针">将字符串视为指针</h3>
+<ul>
+<li><strong>例子</strong>：<code>char *str = &quot;Hello&quot;;</code> —— 这里，<code>str</code> 是一个指向字符串第一个字符的指针。</li>
+<li><strong>访问字符</strong>：可以使用 <code>str[i]</code> 或 <code>*(str + i)</code> 来访问字符。</li>
+</ul>
+<h3 id="区分指针与取址">区分指针与取址</h3>
+<ul>
+<li><code>printf</code> 函数用于打印输出，而传入参数的时候是否使用指针或地址取决于你想做什么。</li>
+</ul>
+<ol>
+<li>
+<p><strong>打印变量的值</strong>：<br>
+如果你想打印一个变量的值，你会直接传入这个变量。例如，如果你有一个整数 <code>int a = 5;</code> 并且想打印它，你会这样写：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, a);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>打印指针指向的值</strong>（即解引用指针）：<br>
+如果你有一个指向整数的指针 <code>int *p = &amp;a;</code> 并且想打印它指向的值，你会这样写：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, *p);</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>*p</code> 是解引用操作，它获取指针 <code>p</code> 指向的地址上的值。</p>
+</li>
+<li>
+<p><strong>打印变量的地址</strong>：<br>
+如果你想打印变量的内存地址，你会使用取地址操作符 <code>&amp;</code> 并且传入变量的地址。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p&quot;</span>, (<span class="type">void</span> *)&amp;a); <span class="comment">//同样，这里就是一个不关心类型的指针</span></span><br></pre></td></tr></table></figure>
+<p>这里 <code>%p</code> 是格式化字符串，用于打印地址，而 <code>&amp;a</code> 获取变量 <code>a</code> 的地址。通常需要将地址强制转换为 <code>(void *)</code>，因为 <code>%p</code> 期望一个 <code>void *</code> 类型的参数。</p>
+</li>
+<li>
+<p><strong>打印指针的值</strong>（即指针本身的地址）：<br>
+如果你想打印指针变量自己的值（即它存储的地址），你不需要用 <code>&amp;</code> 取地址，因为指针的值本身就是一个地址。例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p&quot;</span>, (<span class="type">void</span> *)p);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>而函数传参的基本原理在 C 语言中与 <code>printf</code> 函数是相同的，因为 <code>printf</code> 本质上也是一个函数。当你传递参数给任何函数时，你需要确保传递的参数类型与函数期望的参数类型相匹配。以下是一些基本的规则：</p>
+<ol>
+<li>
+<p><strong>传递值</strong>：<br>
+如果函数期望一个值（比如一个整数或字符），你直接传递变量本身。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">func(a); <span class="comment">// 传递变量a的值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>传递指针</strong>：<br>
+如果函数期望一个指针（它可能想要修改传入的变量的值，或者参数是一个数组），你需要传递变量的地址。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> *x)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">func(&amp;a); <span class="comment">// 传递变量a的地址</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>传递指针内容</strong>：<br>
+如果你有一个指向某个数据的指针，而函数需要指针所指向的数据值，你需要传递解引用后的指针。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> *p = &amp;a;</span><br><span class="line">func(*p); <span class="comment">// 传递指针p所指向的值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>传递函数中的指针</strong>：<br>
+如果函数期望一个 <code>void *</code> 类型的参数，你可以传递任何类型的指针，并且通常不需要显式类型转换，因为 C 语言允许任何类型的指针自动转换为 <code>void *</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">void</span> *ptr)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line">func(&amp;a); <span class="comment">// 直接传递变量a的地址，不需要显式转换为void*</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在 C 语言中传递指针时不会复制指针所指向的数据，而是复制指针本身（即地址）。这意味着函数内部可以通过传入的指针修改原始数据。这种传递方式称为“传址调用”（Call by Reference）。而直接传递值（不是地址）称为“传值调用”（Call by Value），在这种情况下，函数内部的修改不会影响原始数据。</p>
+<h2 id="指针的指针">指针的指针</h2>
+<p>指针的指针，字面意思就是指向指针的指针。</p>
+<p>解释：你有一个指针，它的值是另一个指针的地址。这种类型的指针可以用来间接引用数据，或者处理指针数组（如字符串数组）。</p>
+<p>举几个小例子：</p>
+<ol>
+<li><strong>声明指针的指针</strong>：</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> value = <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> *ptr = &amp;value;   <span class="comment">// ptr 是指向 int 的指针</span></span><br><span class="line"><span class="type">int</span> **dptr = &amp;ptr;   <span class="comment">// dptr 是指向 int* 的指针，即指针的指针</span></span><br></pre></td></tr></table></figure>
+<p>这里面：</p>
+<ul>
+<li><code>ptr</code> 存储了 <code>value</code> 的地址。</li>
+<li><code>dptr</code> 存储了 <code>ptr</code> 的地址。</li>
+</ul>
+<ol start="2">
+<li><strong>使用指针的指针</strong>：</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Value is %d\n&quot;</span>, value);          <span class="comment">// 输出 value 的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Value via ptr is %d\n&quot;</span>, *ptr);   <span class="comment">// 使用 ptr 间接引用 value 的值</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Value via dptr is %d\n&quot;</span>, **dptr);<span class="comment">// 使用 dptr 间接引用 value 的值，就是解引用了两次，看dptr前面有俩星号就知道了</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出都是5</p>
+</blockquote>
+<ol start="3">
+<li>在函数参数中使用指针的指针的例子：</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> **pp)</span> &#123;</span><br><span class="line">    <span class="comment">// 使用 **pp 来间接修改指针指向的值</span></span><br><span class="line">    **pp = <span class="number">10</span>;  <span class="comment">// 这将修改 p 指向的值，也就是 value 的值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> value = <span class="number">5</span>;</span><br><span class="line">    <span class="type">int</span> *ptr = &amp;value;</span><br><span class="line">    <span class="type">int</span> **dptr = &amp;ptr;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Before: %d\n&quot;</span>, value);  <span class="comment">// 输出修改前的 value</span></span><br><span class="line">    func(dptr);                     <span class="comment">// 传递指针的指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;After: %d\n&quot;</span>, value);   <span class="comment">// 输出修改后的 value</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，函数 <code>func</code> 接收一个指向 <code>int*</code> 的指针。函数内部对 <code>**pp</code> 的修改会影响 <code>value</code> 的值，因为 <code>pp</code> 指向 <code>ptr</code>，而 <code>ptr</code> 又指向 <code>value</code>。</p>
+<p>指针的指针在处理动态分配的多维数组、传递指针（用于修改指针本身）和处理字符串数组等场景中非常有用。说个略微跑题的话（跑的是考试的题），它们也常用于接口，例如：<code>main</code> 函数的参数 <code>char *argv[]</code> 可以被视为 <code>char **argv</code>，表示一个指向字符串指针的指针。</p>
+<h2 id="准备考试">准备考试</h2>
+<p>理解了这些，就可以考虑去做做上机题了，不会的跟同学一起讨论讨论。如果你很擅长C语言考试，可以考虑借鉴“费曼学习法”，给别的同学讲明白了，自己理解的也就更透彻了，可谓双赢。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://nagi.fun">Jesse Zhang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://nagi.fun/2023/12/10/pointers/">https://nagi.fun/2023/12/10/pointers/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post_share"><div class="social-share" data-image="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/himmel_1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/02/Turning-21/" title="Turning 21"><img class="cover" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/content/Frieren.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">Turning 21</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/avatar_sonny.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jesse Zhang</div><div class="author-info__description">Breezing</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Nagi-ovo"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Nagi-ovo" target="_blank" title="Github"><i class="fab fa-github" style="color: ;"></i></a><a class="social-icon" href="https://twitter.com/Nag1ovo" target="_blank" title="Twitter"><i class="fas fa-brands fa-twitter" style="color: ;"></i></a><a class="social-icon" href="https://www.zhihu.com/people/bu-xue-hao-shu-xue-wu-li-bu-gai-ming" target="_blank" title="Zhihu"><i class="fab fa-brands fa-zhihu"></i></a><a class="social-icon" href="https://space.bilibili.com/312249633" target="_blank" title="Bilibili"><i class="fab fa-brands fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">¡Hola！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概念概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">1.1.</span> <span class="toc-text">指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.3.</span> <span class="toc-text">字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%BA%92%E8%81%94"><span class="toc-number">2.</span> <span class="toc-text">指针、数组和字符串的互联</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84"><span class="toc-number">2.1.</span> <span class="toc-text">使用指针与数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%86%E4%B8%BA%E6%8C%87%E9%92%88"><span class="toc-number">2.2.</span> <span class="toc-text">将字符串视为指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%86%E6%8C%87%E9%92%88%E4%B8%8E%E5%8F%96%E5%9D%80"><span class="toc-number">2.3.</span> <span class="toc-text">区分指针与取址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E6%8C%87%E9%92%88"><span class="toc-number">3.</span> <span class="toc-text">指针的指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E8%80%83%E8%AF%95"><span class="toc-number">4.</span> <span class="toc-text">准备考试</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/10/pointers/" title="pointers"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/himmel_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="pointers"/></a><div class="content"><a class="title" href="/2023/12/10/pointers/" title="pointers">pointers</a><time datetime="2023-12-10T13:16:05.000Z" title="Created 2023-12-10 21:16:05">2023-12-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/02/Turning-21/" title="Turning 21"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/content/Frieren.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Turning 21"/></a><div class="content"><a class="title" href="/2023/12/02/Turning-21/" title="Turning 21">Turning 21</a><time datetime="2023-12-01T18:12:02.000Z" title="Created 2023-12-02 02:12:02">2023-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/29/ar5iv/" title="ar5iv"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/fuji_1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ar5iv"/></a><div class="content"><a class="title" href="/2023/11/29/ar5iv/" title="ar5iv">ar5iv</a><time datetime="2023-11-29T09:40:04.000Z" title="Created 2023-11-29 17:40:04">2023-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/29/bjut-ai/" title="bjut-ai"><img src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/fuji_2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="bjut-ai"/></a><div class="content"><a class="title" href="/2023/10/29/bjut-ai/" title="bjut-ai">bjut-ai</a><time datetime="2023-10-28T17:45:12.000Z" title="Created 2023-10-29 01:45:12">2023-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/04/edu-vs-tech/" title="教育 vs 技术"><img src="https://img1.baidu.com/it/u=2975262071,1492363080&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=282" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="教育 vs 技术"/></a><div class="content"><a class="title" href="/2023/10/04/edu-vs-tech/" title="教育 vs 技术">教育 vs 技术</a><time datetime="2023-10-03T16:11:09.000Z" title="Created 2023-10-04 00:11:09">2023-10-04</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2023 By Jesse Zhang</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">京ICP备2023009520号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Toggle Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://nagi.fun/js/utils.js"></script><script src="https://nagi.fun/js/main.js"></script><script src="https://nagi.fun/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/12/02/Turning-21/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/content/Frieren.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-12-02</span><a class="blog-slider__title" href="2023/12/02/Turning-21/" alt="">Turning 21</a><div class="blog-slider__text">It's supposed to be fun turning 21</div><a class="blog-slider__button" href="2023/12/02/Turning-21/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/11/29/ar5iv/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/fuji_1.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-11-29</span><a class="blog-slider__title" href="2023/11/29/ar5iv/" alt="">ar5iv</a><div class="blog-slider__text">一个网络服务，提供从arXiv.org转换为latexml格式的HTML5文章。</div><a class="blog-slider__button" href="2023/11/29/ar5iv/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/10/04/edu-vs-tech/" alt=""><img width="48" height="48" src="https://img1.baidu.com/it/u=2975262071,1492363080&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=282" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-10-04</span><a class="blog-slider__title" href="2023/10/04/edu-vs-tech/" alt="">教育 vs 技术</a><div class="blog-slider__text">教育制度本身在对技术做出回应的时候，并没有做到将技术的好处最大限度地运用到学习中来。</div><a class="blog-slider__button" href="2023/10/04/edu-vs-tech/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/07/01/chsi-converter/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/content/ez4stu.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-07-01</span><a class="blog-slider__title" href="2023/07/01/chsi-converter/" alt="">CHSI-Converter</a><div class="blog-slider__text">在线/离线一键转化学信网认证为英文版word文档，用于GitHub学生包认证</div><a class="blog-slider__button" href="2023/07/01/chsi-converter/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/08/10/cpp-notes/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/cpp.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-08-10</span><a class="blog-slider__title" href="2023/08/10/cpp-notes/" alt="">cpp-notes</a><div class="blog-slider__text">暑假学习C++课程期间所记所想</div><a class="blog-slider__button" href="2023/08/10/cpp-notes/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/10/29/bjut-ai/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/fuji_2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-10-29</span><a class="blog-slider__title" href="2023/10/29/bjut-ai/" alt="">bjut-ai</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2023/10/29/bjut-ai/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2023/07/28/about me/" alt=""><img width="48" height="48" src="https://thatwebsite.oss-cn-hongkong.aliyuncs.com/blog/sonny_1.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2023-07-28</span><a class="blog-slider__title" href="2023/07/28/about me/" alt="">关于自己</a><div class="blog-slider__text">关于我</div><a class="blog-slider__button" href="2023/07/28/about me/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
