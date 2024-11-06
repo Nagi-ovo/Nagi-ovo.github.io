@@ -8,8 +8,6 @@ module.exports = {
   introduction: [
     'I\'m a Senior student at [BJUT](https://english.bjut.edu.cn/), advised by [Xiaoyan Li](https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en).',
     'My research interests span a wide range of topics, including Large Language Models (LLMs), Agents, Reinforcement Learning, and Embodied Intelligence. My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements.',
-    "**News:**",
-    "- [Imprompter](https://imprompter.ai) is covered by [WIRED](https://www.wired.com/story/ai-imprompter-malware-llm/) and [acknowledged](https://docs.mistral.ai/getting-started/changelog/) by Mistral AI (9-13-2024)!",
   ],
   avatar: 'avatar.png',
   professions: [
@@ -69,7 +67,7 @@ module.exports = {
   ],
   interests: [
     {
-      icon: '/openai.png',
+      icon: 'brain',
       title: 'LLMs',
     }, {
       icon: 'robot',
