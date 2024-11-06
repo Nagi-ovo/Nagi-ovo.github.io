@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://nagi-ovo.github.io/sitemap-index.xml
+Host: https://nagi-ovo.github.io
