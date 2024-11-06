@@ -44,7 +44,7 @@ jobs:
       - run: yarn run build
       - run: touch public/.nojekyll
       - name: Deploy to GitHub Pages
-        if: success() && github.ref == 'refs/heads/master'
+        if: success() && github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
