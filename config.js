@@ -109,7 +109,7 @@ module.exports = {
           date: 'Feb 2024 - May 2024',
           title: 'Kaggle Silver Medal (Top 4%), Team Leader',
           location: 'LLM Prompt Recovery',
-          description: '',
+          description: 'By utilizing my knowledge in Natural Language Processing (NLP) and Large Language Models (LLMs), I achieved a high ranking through methods such as fine-tuning and constructing sampling datasets.',
         },
       ],
     },
