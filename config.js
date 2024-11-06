@@ -107,9 +107,9 @@ module.exports = {
       data: [
         {
           date: 'Feb 2024 - May 2024',
-          title: 'Tem',
-          location: 'Beijing, China',
-          description: 'Large language model consultant, research and development of automatic labeling system',
+          title: 'Kaggle Silver Medal (Top 4%), Team Leader',
+          location: 'LLM Prompt Recovery',
+          description: '',
         },
       ],
     },
