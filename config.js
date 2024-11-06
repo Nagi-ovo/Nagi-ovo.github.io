@@ -70,7 +70,7 @@ module.exports = {
   interests: [
     {
       icon: ['fab', 'LLMs'],
-      title: './static/openai.svg',
+      title: '/openai.png',
     }, {
       icon: 'robot',
       title: 'Robotics & RL',
