@@ -6,25 +6,21 @@ module.exports = {
   author: 'Jesse Zhang',
   authorAlternative: '张泽西',
   introduction: [
-    'I\'m a PhD candidate at [MESL](http://mesl.ucsd.edu/) of UCSD CSE, advised by [Rajesh K. Gupta](http://mesl.ucsd.edu/gupta/) and [Earlence Fernandes](http://www.earlence.com/). I obtained my bachelor degree in Electrical and Computer Engineering from University of Michigan-Shanghai Jiaotong University Joint Institute ([UM-SJTU JI](https://www.ji.sjtu.edu.cn/)).',
+    'I\'m a PhD candidate at [MESL](http://mesl.ucsd.edu/) of UCSD CSE, advised by [Xiaoyan Li](https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en). I obtained my bachelor degree in Electrical and Computer Engineering from University of Michigan-Shanghai Jiaotong University Joint Institute ([UM-SJTU JI](https://www.ji.sjtu.edu.cn/)).',
     'My research interest spans widely, including CPS-IoT (smart buildings in particular), security, privacy, and applied cryptography. I missioned myself to help the general public embrace the utility and productivity of evolving technologies such as AI, smart hardware, etc. **without** being worried about various security, privacy, and safety issues including but not limited to ubiquitous surveillance, personal info leakage, and data misusage. ',
-    "**News:**", 
+    "**News:**",
     "- [Imprompter](https://imprompter.ai) is covered by [WIRED](https://www.wired.com/story/ai-imprompter-malware-llm/) and [acknowledged](https://docs.mistral.ai/getting-started/changelog/) by Mistral AI (9-13-2024)!",
-    "- Our recent work [Playground](https://ieeexplore.ieee.org/abstract/document/10571633) was one of the 🏆best paper finalists🏆 at [ICCPS24](https://iccps.acm.org/2024/)!**",
   ],
   avatar: 'avatar.png',
   professions: [
-    'PhD Student',
+    'Senior Student',
   ],
   tocMaxDepth: 2,
   excerptMaxLength: 500,
-  // birthday: '1949.10.1',
-  location: 'San Diego, US',
-  email: 'xhfu@ucsd.edu',
+  location: 'Beijing, China',
+  email: 'z13264500190@gmail.com',
   postsForArchivePage: 3,
   defaultLanguage: 'en',
-  disqusScript: process.env.DISQUS_SCRIPT
-    || 'https://xhfu.disqus.com/embed.js',
   pages: {
     home: '/',
     posts: 'posts',
@@ -35,16 +31,16 @@ module.exports = {
   },
   social: [
     {
-      url: 'https://github.com/reapor-yurnero',
+      url: 'https://github.com/Nagi-ovo',
       icon: ['fab', 'github'],
     },
     {
-      url: 'https://scholar.google.com/citations?user=1eNRT-UAAAAJ&hl=en',
+      url: 'https://scholar.google.com/citations?hl=en&user=4r4iwb4AAAAJ',
       icon: ['fab', 'google-scholar'],
     },
     {
-      url: 'https://x.com/xiaohan_fu',
-      icon: ['fab', 'x-twitter']
+      url: 'https://www.linkedin.com/in/jesse-zhang-83bb20291/',
+      icon: ['fab', 'linkedin']
     }
           ],
   // wakatime: {
@@ -55,41 +51,32 @@ module.exports = {
   //   os: 'caf7d0d1-8fd2-4595-a991-363c8583fea9',
   // },
   contactFormUrl: process.env.CONTACT_FORM_ENDPOINT
-    || 'https://getform.io/f/09a3066f-c638-40db-ad59-05e4ed71e451',
+    || 'https://getform.io/f/bjjjmoxb',
   googleAnalyticTrackingId: process.env.GA_TRACKING_ID || 'G-GFMXZR1LDN',
   education: [
     {
-      date: 'Jul 2021 - Present',
+      date: 'Sep 2019 - Present',
       icon: 'graduation-cap',
-      title: 'PhD Student in Computer Science',
-      location: 'University of California, San Diego (UCSD)',
-    },
-    {
-      date: 'Sep 2019 - Jun 2021',
-      icon: 'graduation-cap',
-      title: 'Master Student in Computer Science',
-      location: 'University of California, San Diego (UCSD)',
+      title: 'Bachelor of Artificial Intelligence',
+      location: 'Beijing University of Technology (BJUT)',
     },
     {
       date: 'Sep 2015 - Aug 2019',
-      icon: 'university',
-      title: 'Bachelor in Electrical and Computer Engineering',
-      location: 'University of Michigan-Shanghai Jiaotong University Joint Institute (UM-SJTU JI)',
+      icon: 'school',
+      title: 'High School Diploma',
+      location: 'The Affiliated High School of Peking University (pkuschool)',
     },
   ],
   interests: [
     {
-      icon: ['fab', 'linux'],
-      title: 'Operating Systems',
+      icon: ['fab', 'LLMs'],
+      title: './static/openai.svg',
+    }, {
+      icon: 'robot',
+      title: 'Robotics & RL',
     }, {
       icon: 'user-secret',
       title: 'Secure & Privacy',
-    }, {
-      icon: 'key',
-      title: 'Cryptography',
-    }, {
-      icon: 'city',
-      title: 'CPS-IoT / Smart Buildings',
     }],
   experience: [
     {
