@@ -69,8 +69,8 @@ module.exports = {
   ],
   interests: [
     {
-      icon: ['fab', 'LLMs'],
-      title: '/openai.png',
+      icon: '/openai.png',
+      title: 'LLMs',
     }, {
       icon: 'robot',
       title: 'Robotics & RL',
@@ -80,29 +80,18 @@ module.exports = {
     }],
   experience: [
     {
-      title: 'Work',
+      title: 'Internship',
       position: 'left',
       data: [
         {
-          date: 'Jun 2022 - Sep 2022',
-          title: 'R&D Intern at Synopsys',
-          location: 'Remote',
-          description: 'Developed a verification tool (NDA). Patent in progress.',
+          date: 'Apr 2024 - Aug 2024',
+          title: 'Software Engineer',
+          location: 'Beijing, China',
+          description: 'Large language model consultant, research and development of automatic labeling system',
         },
       ],
     },
     {
-      title: 'Work',
-      position: 'left',
-      data: [
-        {
-          date: 'Mar 2017 - Sep 2017',
-          title: 'Software Design Engineer Intern at Apple',
-          location: 'Shanghai, China',
-          description: 'Worked in HWTE team for Macbook and iWatch. Piloted in the transition from old fixture framework to new one.',
-        },
-      ],
-    }, {
       title: 'Teaching',
       position: 'right',
       data: [
