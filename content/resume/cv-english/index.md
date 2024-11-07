@@ -6,7 +6,7 @@ date: 2020-11-12
 # venue: DOTA2
 # authors:
 #   - "Xiaohan Fu, Jason Koh, "
-path: "resume/CV-EN"
+path: "resume/cv-english"
 excerpt: My CV in English.
 # selected: true
 cover: "./cv.png"
