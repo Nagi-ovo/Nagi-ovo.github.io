@@ -21,7 +21,7 @@ module.exports = {
   defaultLanguage: 'en',
   pages: {
     home: '/',
-    posts: 'posts',
+    // posts: 'posts',
     contact: 'contact',
     resume: 'resume',
     tags: 'tags',
