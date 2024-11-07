@@ -21,13 +21,17 @@ module.exports = {
   defaultLanguage: 'en',
   pages: {
     home: '/',
-    // posts: 'posts',
+    posts: 'posts',
     contact: 'contact',
     resume: 'resume',
     tags: 'tags',
     research: 'research',
   },
   social: [
+    {
+      url: '/jesse-cv.pdf',
+      icon: ['ai', 'cv'],
+    }, 
     {
       url: 'https://github.com/Nagi-ovo',
       icon: ['fab', 'github'],
@@ -114,7 +118,7 @@ module.exports = {
       ],
     },
   ],
-  awards: [],
+  // awards: [],
   tagColors: [
     'magenta', 'red', 'volcano', 'orange', 'gold',
     'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple',
