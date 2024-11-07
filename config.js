@@ -53,13 +53,13 @@ module.exports = {
   googleAnalyticTrackingId: process.env.GA_TRACKING_ID || 'G-GFMXZR1LDN',
   education: [
     {
-      date: 'Sep 2019 - Present',
+      date: 'Sep 2021 - Present',
       icon: 'graduation-cap',
       title: 'Bachelor of Artificial Intelligence',
       location: 'Beijing University of Technology (BJUT)',
     },
     {
-      date: 'Sep 2015 - Aug 2019',
+      date: 'Sep 2019 - Jun 2021',
       icon: 'school',
       title: 'High School Diploma',
       location: 'The Affiliated High School of Peking University (pkuschool)',
