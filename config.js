@@ -11,7 +11,7 @@ module.exports = {
     'Looking for a *Research Internship* position !',
     '## Skills \n ### Programming \n - Python, C++, JavaScript/Typescript, SQL \n ### Frameworks & tools \n - PyTorch, OpenAI Triton, React/Next.js, Docker, Git',
   ],
-  avatar: 'logo.png',
+  avatar: 'avatar.png',
   professions: [
     'Senior Student',
   ],
@@ -34,10 +34,10 @@ module.exports = {
       url: 'https://github.com/Nagi-ovo',
       icon: ['fab', 'github'],
     },
-    /*{
+    {
       url: 'https://scholar.google.com/citations?hl=en&user=4r4iwb4AAAAJ',
       icon: ['fab', 'google-scholar'],
-    },*/
+    },
     {
       url: 'https://www.linkedin.com/in/jesse-zhang-83bb20291/',
       icon: ['fab', 'linkedin']
