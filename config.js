@@ -29,10 +29,6 @@ module.exports = {
   },
   social: [
     {
-      url: '/jesse-cv.pdf',
-      icon: ['ai', 'cv'],
-    }, 
-    {
       url: 'https://github.com/Nagi-ovo',
       icon: ['fab', 'github'],
     },
@@ -43,8 +39,15 @@ module.exports = {
     {
       url: 'https://www.linkedin.com/in/jesse-zhang-83bb20291/',
       icon: ['fab', 'linkedin']
-    }
-          ],
+    },
+    {
+      url: 'https://blog.nagi.fun',
+      icon: ['fas', 'globe'],
+    }, {
+      url: '/jesse-cv.pdf',
+      icon: ['ai', 'cv'],
+    }, 
+  ],
   // wakatime: {
   //   username: 'tcimba',
   //   activity: '7add4047-08f9-4da8-b649-aa114503678f',
