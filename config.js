@@ -87,7 +87,7 @@ module.exports = {
       data: [
         {
           date: 'Apr 2024 - Aug 2024',
-          title: 'Software Engineer',
+          title: 'Software Engineer at [Pony.AI](https://pony.ai/?lang=en)',
           location: 'Beijing, China',
           description: 'Large language model consultant, research and development of automatic labeling system',
         },
