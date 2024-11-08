@@ -7,7 +7,9 @@ module.exports = {
   authorAlternative: '张泽西',
   introduction: [
     'I\'m a Senior student at [BJUT](https://english.bjut.edu.cn/), advised by [Xiaoyan Li](https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en).',
-    'My research interests span a wide range of topics, including Large Language Models (LLMs), Agents, Reinforcement Learning, and Embodied Intelligence. My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements.',
+    'My research interests span a wide range of topics, including *Large Language Models (LLMs), Agents, Reinforcement Learning, and Embodied Intelligence*. My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements.',
+    'Looking for a *Research Internship* position !',
+    '## Skills \n ### Programming \n - Python, C++, JavaScript/Typescript, SQL \n ### Frameworks & tools \n - PyTorch, OpenAI Triton, React/Next.js, Docker, Git',
   ],
   avatar: 'avatar.png',
   professions: [
