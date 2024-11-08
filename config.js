@@ -16,7 +16,7 @@ module.exports = {
   tocMaxDepth: 2,
   excerptMaxLength: 500,
   location: 'Beijing, China',
-  email: 'z13264500190@gmail.com',
+  email: 'j3ssezhang102@gmail',
   postsForArchivePage: 3,
   defaultLanguage: 'en',
   pages: {
