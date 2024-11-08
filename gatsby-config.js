@@ -3,6 +3,12 @@ const config = require('./config');
 module.exports = {
   plugins: [
     {
+      resolve: 'gatsby-plugin-meta-redirect',
+      options: {
+        redirects: require('./gatsby-node').redirects,
+      },
+    },
+    {
       resolve: 'gatsby-theme-academic',
       options: {
         contentPath: 'content',
