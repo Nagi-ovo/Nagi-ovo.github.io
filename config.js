@@ -11,7 +11,7 @@ module.exports = {
     'Looking for a *Research Internship* position !',
     '## Skills \n ### Programming \n - Python, C++, JavaScript/Typescript, SQL \n ### Frameworks & tools \n - PyTorch, OpenAI Triton, React/Next.js, Docker, Git',
   ],
-  avatar: 'avatar.png',
+  avatar: 'logo.png',
   professions: [
     'Senior Student',
   ],
