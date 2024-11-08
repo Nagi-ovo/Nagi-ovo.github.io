@@ -77,7 +77,7 @@ module.exports = {
   interests: [
     {
       icon: 'brain',
-      title: 'LLMs',
+      title: 'LLM / VLMs',
     }, {
       icon: 'robot',
       title: 'Robotics & RL',
