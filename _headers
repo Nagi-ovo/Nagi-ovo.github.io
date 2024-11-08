@@ -163,11 +163,11 @@
   Cache-Control: public, max-age=31536000, immutable
 /75fc9c18-c5d03209af1460f16fd5.js.LICENSE.txt
   Cache-Control: public, max-age=31536000, immutable
-/app-9238dd0c37402141db00.js.LICENSE.txt
+/app-24ab5254759832bbb4de.js.LICENSE.txt
   Cache-Control: public, max-age=31536000, immutable
 /framework-f20517df6e254c7a2682.js.LICENSE.txt
   Cache-Control: public, max-age=31536000, immutable
-/app-9238dd0c37402141db00.js
+/app-24ab5254759832bbb4de.js
   Cache-Control: public, max-age=31536000, immutable
 /webpack-runtime-ecc0e39b5546a92383e6.js
   Cache-Control: public, max-age=31536000, immutable
@@ -239,7 +239,7 @@
   Cache-Control: public, max-age=31536000, immutable
 /81a8d61a8497fdffcd2dbe58f2ca68da23897ddf-e02b18e9ebc221e94e77.js
   Cache-Control: public, max-age=31536000, immutable
-/app-9238dd0c37402141db00.js.map
+/app-24ab5254759832bbb4de.js.map
   Cache-Control: public, max-age=31536000, immutable
 /webpack-runtime-ecc0e39b5546a92383e6.js.map
   Cache-Control: public, max-age=31536000, immutable
