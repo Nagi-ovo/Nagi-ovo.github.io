@@ -36,5 +36,5 @@ The experimental results show that MemoMusic 3.0 effectively improves listener s
 ## My Contributions
 
 - Involved in the design of the model architecture
-- Main developer of the [experiment platform](https://github.com/MZhexin/MemoMusic-front) (React.js & Flask)
+- **Main developer** of the [experiment platform](https://github.com/MZhexin/MemoMusic-front) (React.js & Flask)
 - Conducted experiments and analyzed the results
