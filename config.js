@@ -1,6 +1,6 @@
 module.exports = {
   pathPrefix: '/',
-  siteUrl: 'https://nagi-ovo.github.io',
+  siteUrl: 'https://nagi.fun',
   title: 'Jesse Zhang',
   siteDescription: 'Homepage of Jesse Zhang',
   author: 'Jesse Zhang',
