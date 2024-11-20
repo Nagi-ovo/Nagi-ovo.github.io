@@ -1,0 +1,66 @@
+primary_name: "Jesse Zhang"
+secondary_name: ""
+navbar_name: "Jesse Zhang's Home Page"
+
+positions:
+  - '<span class="no-break"><img src="assets/images/badges/bjut-logo.png" alt="Beijing University of Technology" class="inline-badge"/></span> B.S., Beijing University of Technology (2025)'
+
+email: "j3ssezhang102@gmail.com"
+gscholar: 4r4iwb4AAAAJ
+# sscholar: Rongsheng-Wang/2261313297
+github: Nagi-ovo
+# twitter: 
+# wechat_qrcode: assets/images/etc/wechat.jpg
+# wechat_prompt: >-
+#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
+zhihu: bu-xue-hao-shu-xue-wu-li-bu-gai-ming
+resume: assets/cv/jesse-cv.pdf
+linkedin: jesse-zhang-83bb20291
+# orcid: 0000-0000-0000-0000
+
+short_bio: >-
+  I'm a senior student at <a href="https://english.bjut.edu.cn/">Beijing University of Technology</a>, advised by <a href="https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en">Xiaoyan Li</a>. My research interests span a wide range of topics, including <strong>Large Language Models (LLMs), Agents, Reinforcement Learning, and Embodied Intelligence</strong> 🤖. My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements. I love sharing ideas and experiences on <a href="https://blog.nagi.fun">my blog</a> — come take a look! 👀 <br><br> Looking for a <strong>Research Internship</strong> opportunity! 
+  <br><br>
+  Technical Skills 🛠️<br>
+  <strong>Languages</strong>: Python, C++, JavaScript/TypeScript, SQL<br>
+  <strong>Frameworks & tools</strong>: PyTorch, OpenAI Triton, React/Next.js, Docker, Git
+
+show_portrait: true
+portrait_url: assets/images/photos/portrait.jpg
+portrait_caption: >-
+  我是张泽西，欢迎访问我的主页~
+
+education:
+- name: Beijing University of Technology
+  logo: assets/images/badges/bjut-logo.png
+  position: B.S. in Artificial Intelligence
+  date: Sep. 2021 - Jul. 2025 (Expected)
+- name: The Affiliated High School of Peking University
+  logo: assets/images/badges/pkuschool-logo.png
+  position: High School Diploma
+  date: Sep. 2019 - Jul. 2021
+
+experience:
+- name: Pony.ai
+  logo: assets/images/badges/ponyai-logo.png
+  position: Software Engineer Intern
+  date: April. 2024 - Aug. 2024
+- name: Beijing University of Technology
+  logo: assets/images/badges/bjut-logo.png
+  position: Research Assistant (advised by <a href="https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en">Xiaoyan Li</a>)
+  date: Sep. 2024 - Now
+
+
+awards:
+- name: Provincial First Prize, China Undergraduate Mathematical Contest in Modeling (CUMCM)
+  date: 2023
+- name: Kaggle Silver Medal (Top 5% teams), LLM Prompt Recovery Challenge
+  date: 2024
+
+# service:
+# - name: Reviewer of <a href="https://www.embs.org/jbhi/">Journal of Biomedical and Health Informatics (JBHI)</a>
+
+# Feel free to replace the footer text if you would like to, but I will greatly appreciate it 
+# if you keep the link to the template so that more people can benefit from it. Thanks!
+footer_text: >-
+  Copyright © 2024 <a href="https://github.com/Nagi-ovo" target="_blank">Jesse Zhang</a>. All Rights Reserved.
