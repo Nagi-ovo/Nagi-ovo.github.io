@@ -59,6 +59,12 @@
                         </a> 
                         {% endif %}
 
+                        {% if site.data.profile.blog %}
+                        <a class="pr-3 no-break" target="_blank" href="{{ site.data.profile.blog }}">
+                            <i class="fas fa-globe"></i> Blog
+                        </a>
+                        {% endif %}
+
                         {% if site.data.profile.wechat_qrcode %}
                         <a class="pr-3 no-break" data-toggle="modal" data-target="#modal-wechat">
                             <i class="fab fa-weixin"></i> WeChat
