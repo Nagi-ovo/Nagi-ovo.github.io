@@ -10,3 +10,16 @@ LICENSE
 *.svg
 *.webp
 *.pdf
+
+_data/
+_site/
+.github/
+assets/
+
+content/
+google_scholar_crawler/
+.gitignore
+.cursorignore
+CNAME*
+Gemfile
+LICENSE
