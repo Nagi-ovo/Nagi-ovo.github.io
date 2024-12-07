@@ -3,20 +3,24 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+    font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 700;
+    font-size: 1.8rem;
 }
 
 .text-profile-position {
     font-weight: 400;
+    font-size: 1.2rem;
 }
 
 .text-profile-bio {
     /* font-family: "Raleway"; */
     font-weight: 400;
+    font-size: 1.2rem;
 }
 
 .navbar {
@@ -57,5 +61,19 @@ img.lazy {
 
 .email-text {
     font-family: Courier, monospace;
+}
+
+.social-links {
+    font-size: 1.2rem;
+}
+
+.small {
+    font-size: 1rem !important;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }
 
