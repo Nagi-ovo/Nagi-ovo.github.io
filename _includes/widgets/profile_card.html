@@ -4,6 +4,54 @@
             <h3>{{ site.data.profile.name }}</h3>
             <p class="text-muted text-profile-position">{{ site.data.profile.position }}</p>
             <p class="text-profile-bio">{{ site.data.profile.short_bio }}</p>
+            
+            <p class="mb-0">
+                {% if site.data.profile.email %}
+                <a href="mailto:{{ site.data.profile.email }}" target="_blank">
+                    <i class="fas fa-envelope"></i> j3ssezhang102[at]gmail[dot]com
+                </a>
+                {% endif %}
+
+                {% if site.data.profile.github %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.github }}" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </span>
+                {% endif %}
+
+                {% if site.data.profile.linkedin %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.linkedin }}" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </span>
+                {% endif %}
+
+                {% if site.data.profile.zhihu %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.zhihu }}" target="_blank">
+                        <i class="fab fa-zhihu"></i> Zhihu
+                    </a>
+                </span>
+                {% endif %}
+
+                {% if site.data.profile.blog %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.blog }}" target="_blank">
+                        <i class="fas fa-globe"></i> Blog
+                    </a>
+                </span>
+                {% endif %}
+
+                {% if site.data.profile.resume %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.resume }}" target="_blank">
+                        <i class="fas fa-file-alt"></i> CV
+                    </a>
+                </span>
+                {% endif %}
+            </p>
         </div>
     </div>
     {% if site.data.profile.show_portrait %}
