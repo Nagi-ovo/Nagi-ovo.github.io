@@ -20,7 +20,10 @@ linkedin: zexi-jesse-zhang-83bb20291
 # orcid: 0000-0000-0000-0000
 
 short_bio: >-
-  I'm a senior student at <a href="https://english.bjut.edu.cn/">Beijing University of Technology</a>, advised by <a href="https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en">Xiaoyan Li</a>. My research interests span a wide range of topics, including <strong>Large Language Models (LLMs), Agents, Reinforcement Learning, and Embodied Intelligence</strong> 🤖. My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements. I love sharing ideas and experiences on <a href="https://blog.nagi.fun">my blog</a> — come take a look! 👀 <br><br> Looking for a <strong>Research Internship</strong> opportunity! 
+  I'm a senior student at <a href="https://english.bjut.edu.cn/">Beijing University of Technology</a>, advised by <a href="https://scholar.google.com/citations?user=MCzJnAQAAAAJ&hl=en">Xiaoyan Li</a>. My research interests span a wide range of topics, including <strong>Large Language Models (LLMs)</strong>, <strong>Agents</strong>, <strong>Reinforcement Learning</strong>, and <strong>Embodied Intelligence</strong> 🤖. Currently, I am particularly interested in <strong>enhancing the reasoning and planning capabilities of LLMs</strong>.
+  
+  <br><br>My vision is to ensure that everyone can benefit from artificial intelligence, rather than seeing their quality of life and well-being diminished by technological advancements. I love sharing ideas and experiences on <a href="https://blog.nagi.fun">my blog</a> — come take a look! 👀 <br><br> Looking for a <strong>Research Internship</strong> opportunity!
+ 
   <br><br>
   Technical Skills 🛠️<br>
   <strong>Languages</strong>: Python, C++, JavaScript/TypeScript, SQL<br>
@@ -57,7 +60,8 @@ awards:
   date: 2023
 - name: Kaggle Silver Medal (Top 5% teams), LLM Prompt Recovery Challenge
   date: 2024
-
+- name: Honorable Mention, 2024 Mathematical Contest In Modeling (MCM), COMAP
+  date: 2024
 # service:
 # - name: Reviewer of <a href="https://www.embs.org/jbhi/">Journal of Biomedical and Health Informatics (JBHI)</a>
 
