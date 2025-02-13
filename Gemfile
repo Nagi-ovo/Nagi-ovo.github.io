@@ -9,6 +9,11 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 gem "jekyll", "~> 3.9"
+gem "base64"
+gem "logger"
+gem "webrick"
+gem "bigdecimal"
+gem "csv"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.0"
@@ -28,5 +33,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
-gem "webrick", "~> 1.7"
+# gem "webrick", "~> 1.7"
 gem "kramdown-parser-gfm"

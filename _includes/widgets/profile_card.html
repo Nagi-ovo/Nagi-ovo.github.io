@@ -20,14 +20,6 @@
                 </span>
                 {% endif %}
 
-                {% if site.data.profile.linkedin %}
-                <span class="ml-3">
-                    <a href="{{ site.data.profile.linkedin }}" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                </span>
-                {% endif %}
-
                 {% if site.data.profile.zhihu %}
                 <span class="ml-3">
                     <a href="{{ site.data.profile.zhihu }}" target="_blank">
@@ -48,6 +40,14 @@
                 <span class="ml-3">
                     <a href="{{ site.data.profile.resume }}" target="_blank">
                         <i class="fas fa-file-alt"></i> CV
+                    </a>
+                </span>
+                {% endif %}
+
+                {% if site.data.profile.linkedin %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.linkedin }}" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
                 </span>
                 {% endif %}
