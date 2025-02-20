@@ -28,6 +28,16 @@
                 </span>
                 {% endif %}
 
+                {% if site.data.profile.huggingface %}
+                <span class="ml-3">
+                    <a href="{{ site.data.profile.huggingface }}" target="_blank">
+                        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                             alt="Hugging Face" 
+                             style="height: 1.5em; vertical-align: middle;"> Hugging Face
+                    </a>
+                </span>
+                {% endif %}
+
                 {% if site.data.profile.blog %}
                 <span class="ml-3">
                     <a href="{{ site.data.profile.blog }}" target="_blank">
