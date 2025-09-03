@@ -166,16 +166,6 @@ span.highlight {
     width: 60px !important;
   }
   
-  .one, .two {
-    width: 80px !important;
-    height: 80px !important;
-  }
-  
-  .one img, .two video {
-    width: 80px !important;
-    height: 80px !important;
-  }
-  
   body, td, th, tr, p, a {
     font-size: 14px !important;
   }
@@ -198,16 +188,6 @@ span.highlight {
   table[cellpadding="10"] img[width="100%"] {
     max-width: 50px !important;
     width: 50px !important;
-  }
-  
-  .one, .two {
-    width: 60px !important;
-    height: 60px !important;
-  }
-  
-  .one img, .two video {
-    width: 60px !important;
-    height: 60px !important;
   }
   
   body, td, th, tr, p, a {
