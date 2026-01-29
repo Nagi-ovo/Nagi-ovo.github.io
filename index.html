@@ -153,14 +153,16 @@
                           d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
                         </path>
                       </svg>
-                      <span id="voyager-stars">...</span> stars
+                      <span id="voyager-stars">...</span> &nbsp; stars
                     </a>
                   </p>
                   <script>
                     fetch('https://api.github.com/repos/Nagi-ovo/gemini-voyager')
                       .then(response => response.json())
                       .then(data => {
-                        document.getElementById('voyager-stars').innerText = data.stargazers_count;
+                        const stars = data.stargazers_count;
+                        const formattedStars = stars >= 1000 ? (stars / 1000).toFixed(1) + 'k' : stars;
+                        document.getElementById('voyager-stars').innerText = formattedStars;
                       })
                       .catch(error => console.error('Error fetching stars:', error));
                   </script>
@@ -241,6 +243,33 @@
                   <br>
                   <br> <b>Software Engineer Intern</b>
                   <br> Developed data annotation pipelines & trained models for LLMs integration.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Misc</h2>
+                  <p>
+                    <b>Teaching:</b> TA for Natural Language Processing (2025.02 - 2025.06). Built the entire
+                    experimental framework on Kaggle for the course labs.
+                  </p>
+                  <p>
+                    <b>Competition:</b> Silver Medal in Kaggle LLM Prompt Recovery (2024).
+                  </p>
+                  <p>
+                    <b>Hobbies:</b> Bouldering, swimming, badminton, tennis, and FPS games (CS2, Overwatch, etc.). I was
+                    a Top
+                    500 player in Overwatch 2!
+                  </p>
+                  <p>
+                    <b>Community:</b> If you have ADHD and need someone to talk to, I'm happy to schedule a 30-minute
+                    chat every month. Feel free to reach out.
+                  </p>
                 </td>
               </tr>
             </tbody>
