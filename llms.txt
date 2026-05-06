@@ -26,7 +26,7 @@ Zexi "Jesse" Zhang is a researcher at Imperial College London and the Swirl Lab,
 
 ## Projects
 
-- [Gemini Voyager](https://github.com/Nagi-ovo/gemini-voyager) — All-in-one enhancement suite for Google Gemini (12,000+ stars)
+- [Gemini Voyager](https://github.com/Nagi-ovo/gemini-voyager) — All-in-one enhancement suite for Google Gemini (17,000+ stars)
 
 ## Related Sites
 
