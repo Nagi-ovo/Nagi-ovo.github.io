@@ -134,6 +134,25 @@ span.highlight {
   background-color: #ffffd0;
 }
 
+/* Anti-scrape email: characters are stored reversed in the HTML source and
+   flipped back with CSS, while the <i> tags are display:none decoys that only
+   exist to poison naive text/regex scrapers. Renders correctly to humans. */
+.eml {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  white-space: nowrap;
+}
+
+.eml i {
+  display: none;
+}
+
+.email-top {
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
 .colored-box {
     color: black;
     padding: 20px;

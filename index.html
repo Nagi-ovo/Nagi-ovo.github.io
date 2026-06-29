@@ -42,21 +42,11 @@
                     <!--<a href="data/JesseZhang-bio.txt">Bio</a> &nbsp;/&nbsp;-->
                     <!--<a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp;-->
                     <!--<a href="https://twitter.com/">Twitter</a> &nbsp;/&nbsp;-->
-                    <a id="header-email" href="#" onclick="return false;">Email</a> &nbsp;/&nbsp;
+                    <a class="email-link" href="#" onclick="return false;">Email</a> &nbsp;/&nbsp;
                     <a href="https://github.com/Nagi-ovo">Github</a> &nbsp;/&nbsp;
                     <a href="https://www.linkedin.com/in/zexi-zhang-83bb20291/">LinkedIn</a> &nbsp;/&nbsp;
                     <a href="https://blog.nagi.fun">Blog</a>
                   </p>
-                  <script>
-                    (function () {
-                      var u = ['j3', 'ssezhang', '102'].join('');
-                      var d = ['gmail', 'com'].join('.');
-                      var e = u + String.fromCharCode(64) + d;
-                      var a = document.getElementById('header-email');
-                      a.setAttribute('href', 'mailto:' + e);
-                      a.onclick = null;
-                    })();
-                  </script>
                 </td>
                 <td style="padding:2.5%;width:37%;max-width:37%">
                   <a href="images/JesseZhang.jpg"><img
@@ -300,7 +290,7 @@
                 <td style="padding:16px;width:100%;vertical-align:middle">
                   <h2>Contact</h2>
                   <p>
-                    <b>Email:</b> j3ssezhang102 [at] gmail [dot] com
+                    <b>Email:</b> <a class="email-link" href="#" onclick="return false;"><span class="eml">m<i>v</i>oc.l<i>3</i>iamg@<i>p</i>201g<i>n</i>nahz<i>k</i>ess3j</span></a>
                   </p>
                   <p>
                     <b>Community:</b> If you have ADHD and need someone to talk to, I'm happy to schedule a 30-minute
@@ -327,6 +317,43 @@
         </td>
       </tr>
   </table>
+  <script>
+    (function () {
+      var u = ['j3', 'ssez', 'hang', '102'].join('');
+      var d = ['gmail', 'com'].join('.');
+      var e = u + String.fromCharCode(64) + d;
+
+      function toast(msg) {
+        var t = document.createElement('div');
+        t.textContent = msg;
+        t.style.cssText = 'position:fixed;left:50%;bottom:32px;transform:translateX(-50%);' +
+          'background:#333;color:#fff;padding:8px 16px;border-radius:6px;' +
+          "font-family:'Lato',Verdana,sans-serif;font-size:14px;z-index:9999;" +
+          'opacity:0;transition:opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.2);';
+        document.body.appendChild(t);
+        requestAnimationFrame(function () { t.style.opacity = '1'; });
+        setTimeout(function () {
+          t.style.opacity = '0';
+          setTimeout(function () { t.remove(); }, 300);
+        }, 1800);
+      }
+
+      var links = document.querySelectorAll('a.email-link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].setAttribute('href', 'mailto:' + e);
+        links[i].onclick = null;
+        // Also copy the address on click, so visitors without a configured
+        // mail client can still grab it (the visible text is anti-scrape garble).
+        links[i].addEventListener('click', function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(e).then(function () {
+              toast('Email copied: ' + e);
+            }, function () {});
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
