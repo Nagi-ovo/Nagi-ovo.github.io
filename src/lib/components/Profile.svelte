@@ -58,6 +58,12 @@
       gap: 20px;
     }
 
+    .zh {
+      display: block;
+      margin-left: 0;
+      margin-top: 2px;
+    }
+
     .avatar {
       width: 128px;
       height: 128px;
