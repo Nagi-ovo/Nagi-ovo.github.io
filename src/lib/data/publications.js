@@ -3,6 +3,8 @@
 export const publications = [
   {
     image: '/images/papers/tagavlm.png',
+    video: '/images/papers/tagavlm.mp4',
+    poster: '/images/papers/tagavlm-poster.jpg',
     title: 'TagaVLM: Topology-Aware Global Action Reasoning for Vision-Language Navigation',
     href: 'https://apex-bjut.github.io/Taga-VLM/',
     authors: [
@@ -20,7 +22,7 @@ export const publications = [
       { label: 'code', href: 'https://github.com/APEX-BJUT/Taga-VLM' },
     ],
     abstract:
-      'We propose an end-to-end VLM for Vision-Language Navigation that integrates topology-aware spatial reasoning with global action decision, achieving competitive performance on R2R benchmarks with models as small as 0.5B parameters.',
+      'An end-to-end VLM for Vision-Language Navigation that fuses topology-aware spatial reasoning with global action decisions, staying competitive on R2R at just 0.5B parameters.',
     bibtex: `@inproceedings{liu2026tagavlm,
   title     = {TagaVLM: Topology-Aware Global Action Reasoning for Vision-Language Navigation},
   author    = {Liu, Jiaxing and Zhang, Zexi and Li, Xiaoyan and Wang, Boyue and Hu, Yongli and Yin, Baocai},

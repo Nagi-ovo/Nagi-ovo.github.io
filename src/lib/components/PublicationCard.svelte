@@ -2,11 +2,39 @@
   import { copyText } from '$lib/utils/clipboard.js';
 
   let { pub } = $props();
+
+  function play(e) {
+    const v = e.currentTarget.querySelector('video');
+    if (v) v.play().catch(() => {});
+  }
+
+  function stop(e) {
+    const v = e.currentTarget.querySelector('video');
+    if (v) {
+      v.pause();
+      v.currentTime = 0;
+    }
+  }
 </script>
 
-<article class="pub">
-  {#if pub.image}
-    <img class="thumb" src={pub.image} alt={pub.title} loading="lazy" />
+<article class="pub" onmouseenter={play} onmouseleave={stop}>
+  {#if pub.image || pub.video}
+    <div class="thumb">
+      {#if pub.image}
+        <img class="base" src={pub.poster ?? pub.image} alt={pub.title} loading="lazy" />
+      {/if}
+      {#if pub.video}
+        <video
+          class="over"
+          src={pub.video}
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label={pub.title}
+        ></video>
+      {/if}
+    </div>
   {/if}
   <div class="body">
     <a class="title" href={pub.href}>{pub.title}</a>
@@ -26,22 +54,50 @@
 <style>
   .pub {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 20px;
+    grid-template-columns: 180px 1fr;
+    gap: 22px;
     align-items: start;
   }
 
   .thumb {
-    width: 100%;
+    position: relative;
+    width: 180px;
+    height: 180px;
     border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .thumb .base,
+  .thumb .over {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thumb .over {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .pub:hover .thumb .over {
+    opacity: 1;
+  }
+
+  .body {
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   .title {
     font-weight: 700;
+    font-size: 15px;
   }
 
   .authors {
-    margin: 7px 0 2px;
+    margin: 5px 0 1px;
   }
 
   .me {
@@ -53,13 +109,13 @@
   }
 
   .venue {
-    margin: 0 0 4px;
+    margin: 0 0 3px;
     font-style: italic;
     color: var(--c-muted);
   }
 
   .links {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
   }
 
   .linklike {
@@ -77,17 +133,22 @@
 
   .abstract {
     margin: 0;
-    font-size: 15px;
     color: var(--c-muted);
   }
 
   @media (max-width: 600px) {
     .pub {
-      grid-template-columns: 1fr;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
     }
 
     .thumb {
-      max-width: 260px;
+      width: 110px;
+      height: 110px;
+    }
+
+    .abstract {
+      font-size: 14px;
     }
   }
 </style>
