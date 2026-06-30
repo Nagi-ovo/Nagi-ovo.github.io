@@ -133,3 +133,17 @@ h3 {
 .eml i {
   display: none;
 }
+
+/* ── Dark mode (follows system preference) ─────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-text: #e6e6e6;
+    --c-muted: #9a9a9a;
+    --c-faint: #6f6f6f;
+    --c-link: #6bb0ec;
+    --c-link-hover: #f0a85a;
+    --c-border: #2c2c2c;
+    --c-card: #1b1b1b;
+    --c-bg: #141414;
+  }
+}

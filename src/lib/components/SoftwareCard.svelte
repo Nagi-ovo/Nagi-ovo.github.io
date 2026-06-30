@@ -6,7 +6,7 @@
 
 <div class="sw">
   <a href={item.href} aria-label={item.name}>
-    <img class="logo" src={item.logo} alt={item.name} />
+    <img class="logo" src={item.logo} alt={item.name} loading="lazy" />
   </a>
   <div class="body">
     <a class="name" href={item.href}>{item.name}</a>
@@ -41,5 +41,11 @@
 
   .stars-link:hover {
     color: var(--c-link-hover);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .logo {
+      box-shadow: 0 0 0 1px var(--c-border);
+    }
   }
 </style>

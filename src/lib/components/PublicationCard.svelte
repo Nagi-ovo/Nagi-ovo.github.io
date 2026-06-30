@@ -1,10 +1,12 @@
 <script>
+  import { copyText } from '$lib/utils/clipboard.js';
+
   let { pub } = $props();
 </script>
 
 <article class="pub">
   {#if pub.image}
-    <img class="thumb" src={pub.image} alt={pub.title} />
+    <img class="thumb" src={pub.image} alt={pub.title} loading="lazy" />
   {/if}
   <div class="body">
     <a class="title" href={pub.href}>{pub.title}</a>
@@ -13,7 +15,7 @@
     </p>
     <p class="venue">{pub.venue}</p>
     <p class="links">
-      {#each pub.links as l, i}{i > 0 ? ' / ' : ''}<a href={l.href}>{l.label}</a>{/each}
+      {#each pub.links as l, i}{i > 0 ? ' / ' : ''}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex} / <button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>BibTeX</button>{/if}
     </p>
     {#if pub.abstract}
       <p class="abstract">{pub.abstract}</p>
@@ -58,6 +60,19 @@
 
   .links {
     margin: 0 0 8px;
+  }
+
+  .linklike {
+    font: inherit;
+    color: var(--c-link);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .linklike:hover {
+    color: var(--c-link-hover);
   }
 
   .abstract {

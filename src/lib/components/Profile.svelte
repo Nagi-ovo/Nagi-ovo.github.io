@@ -12,7 +12,7 @@
     <p class="intro">{@html site.intro}</p>
     <SocialLinks />
   </div>
-  <img class="avatar" src={site.photo} alt={site.name} />
+  <img class="avatar" src={site.photo} alt={site.name} width="200" height="200" fetchpriority="high" />
 </header>
 
 <style>

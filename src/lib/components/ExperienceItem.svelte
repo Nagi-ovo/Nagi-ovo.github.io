@@ -3,7 +3,7 @@
 </script>
 
 <div class="exp">
-  <img class="logo" src={item.logo} alt={item.org} />
+  <img class="logo" src={item.logo} alt={item.org} loading="lazy" />
   <div class="body">
     <div class="org">{item.org}</div>
     <div class="date">{item.date}</div>
@@ -48,5 +48,13 @@
   .note {
     font-size: 15px;
     color: var(--c-muted);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .logo {
+      background: #f4f4f4;
+      border-radius: 6px;
+      padding: 4px;
+    }
   }
 </style>

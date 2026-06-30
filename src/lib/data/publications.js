@@ -21,5 +21,11 @@ export const publications = [
     ],
     abstract:
       'We propose an end-to-end VLM for Vision-Language Navigation that integrates topology-aware spatial reasoning with global action decision, achieving competitive performance on R2R benchmarks with models as small as 0.5B parameters.',
+    bibtex: `@inproceedings{liu2026tagavlm,
+  title     = {TagaVLM: Topology-Aware Global Action Reasoning for Vision-Language Navigation},
+  author    = {Liu, Jiaxing and Zhang, Zexi and Li, Xiaoyan and Wang, Boyue and Hu, Yongli and Yin, Baocai},
+  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2026},
+}`,
   },
 ];
