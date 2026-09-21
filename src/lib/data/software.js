@@ -1,10 +1,10 @@
 // Add a project = add an object. `repo` (owner/name) drives the live star count.
 export const software = [
   {
-    name: 'Gemini Voyager',
-    href: 'https://github.com/Nagi-ovo/gemini-voyager',
+    name: 'Voyager',
+    href: 'https://github.com/Nagi-ovo/voyager',
     logo: '/images/softwares/logo.webp',
-    repo: 'Nagi-ovo/gemini-voyager',
-    desc: 'An all-in-one enhancement suite for Google Gemini - timeline navigation, folder management, prompt library, and chat export in one powerful extension.',
+    repo: 'Nagi-ovo/voyager',
+    desc: 'A better workspace for Gemini, Claude, ChatGPT, and DeepSeek - folders, timeline navigation, a local prompt library, and chat export.',
   },
 ];
