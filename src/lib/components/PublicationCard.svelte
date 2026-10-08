@@ -36,14 +36,14 @@
       {/if}
     </div>
   {/if}
-  <div class="body">
-    <a class="title" href={pub.href}>{pub.title}</a>
+  <div class="body" style:--accent={pub.accent}>
+    {#if pub.logo}<span class="logo">{@html pub.logo}</span>{/if}<a class="title" class:branded={pub.titleHtml} href={pub.href}>{#if pub.titleHtml}{@html pub.titleHtml}{:else}{pub.title}{/if}</a>
     <p class="authors">
       {#each pub.authors as a, i}{i > 0 ? ', ' : ''}<span class:me={a.me}>{a.name}</span>{#if a.note}<sup>{a.note}</sup>{/if}{/each}
     </p>
     <p class="venue">{pub.venue}</p>
     <p class="links">
-      {#each pub.links as l, i}{i > 0 ? ' / ' : ''}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex} / <button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>BibTeX</button>{/if}
+      {#each pub.links as l, i}{i > 0 ? ' / ' : ''}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex}{' / '}<button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>BibTeX</button>{/if}
     </p>
     {#if pub.abstract}
       <p class="abstract">{pub.abstract}</p>
@@ -94,6 +94,42 @@
   .title {
     font-weight: 700;
     font-size: 15px;
+  }
+
+  /* Branded titles mirror the project page: body in text colour, acronym in accent. */
+  .title.branded {
+    color: var(--c-text);
+  }
+
+  .title.branded:hover {
+    color: var(--c-link-hover);
+  }
+
+  .title :global(b) {
+    font-weight: inherit;
+    color: var(--accent, inherit);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .title :global(b) {
+      color: color-mix(in oklab, var(--accent, currentColor) 60%, white);
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    width: 1.05em;
+    height: 1.05em;
+    margin-right: 0.3em;
+    vertical-align: -0.17em;
+    color: var(--c-text);
+    font-size: 15px;
+  }
+
+  .logo :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .authors {

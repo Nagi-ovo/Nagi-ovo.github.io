@@ -122,6 +122,22 @@ h3 {
 }
 
 /* ── Anti-scrape email ─────────────────────────────────────────────── */
+/* Brand mark placed before a name in {@html} text (news items). */
+.inline-logo {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  vertical-align: -0.14em;
+  color: var(--c-text);
+}
+
+.inline-logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Address is stored reversed in the markup and flipped back with CSS; the
    <i> tags are display:none decoys that poison naive text/regex scrapers. */
 .eml {
