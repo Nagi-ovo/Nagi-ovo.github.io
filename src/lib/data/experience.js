@@ -5,9 +5,16 @@ export const education = [
   {
     logo: '/images/badges/ic-new.png',
     org: 'Imperial College London',
-    date: '2025.09 - Present',
-    role: 'M.Res. in AI & Machine Learning',
+    date: '2026.10 - Present',
+    role: 'Ph.D. in Computer Science',
     note: 'Advisor: Prof. <a href="https://stepjam.github.io/">Stephen James</a>',
+  },
+  {
+    logo: '/images/badges/ic-new.png',
+    org: 'Imperial College London',
+    date: '2025.09 - 2026.09',
+    role: 'M.Res. in AI & Machine Learning',
+    note: 'Graduated with Distinction',
   },
   {
     logo: '/images/badges/bjut.png',

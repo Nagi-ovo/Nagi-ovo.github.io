@@ -5,14 +5,15 @@
 export const site = {
   name: 'Zexi "Jesse" Zhang',
   nameZh: '张泽西',
-  photo: '/images/JesseZhang-opt.jpg',
+  photo: '/images/avatar.jpg',
 
   // Short paragraphs. They may contain inline <a> links — rendered with {@html}.
-  intro: `I am a Master of Research (MRes) student in AI & Machine Learning at
-    <a href="https://www.imperial.ac.uk/">Imperial College London</a>. Currently, I am a member of
+  intro: `I am a CS Ph.D. student at
+    <a href="https://www.imperial.ac.uk/">Imperial College London</a> and a member of
     the <a href="https://www.swirl.uk/home">Safe Whole-body Intelligent Robotics Lab (SWIRL)</a>,
     advised by Prof. <a href="https://stepjam.github.io/">Stephen James</a>. My research focuses on
-    humanoid loco-manipulation and reinforcement learning.`,
+    foundation models in robot learning. I also enjoy running RL on myself in the real world, where rewards
+    are sparse and there is no reset button :)`,
 
   research: `My research focuses on enabling intelligent agents, particularly humanoid robots, to
     perceive, reason, and physically interact with the world.`,
@@ -29,6 +30,7 @@ export const site = {
 
   // Header link row. Email is rendered separately (anti-scrape component).
   social: [
+    { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=30l1YNcAAAAJ&hl=en' },
     { label: 'Github', href: 'https://github.com/Nagi-ovo' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zexi-zhang-83bb20291/' },
     { label: 'Blog', href: 'https://blog.nagi.fun' },

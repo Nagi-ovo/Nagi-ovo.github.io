@@ -6,15 +6,15 @@ import { join } from 'node:path';
 
 const root = join(import.meta.dirname, '..');
 
-const avatar = readFileSync(join(root, 'static/images/JesseZhang-opt.jpg')).toString('base64');
+const avatar = readFileSync(join(root, 'static/images/avatar.jpg')).toString('base64');
 const avatarUri = `data:image/jpeg;base64,${avatar}`;
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const name = 'Zexi "Jesse" Zhang';
 const nameZh = '张泽西';
-const tagline = 'AI & Machine Learning · Imperial College London';
-const subtitle = 'Humanoid loco-manipulation and reinforcement learning';
+const tagline = 'CS Ph.D. Student · Imperial College London';
+const subtitle = 'Foundation models in robot learning';
 
 const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>

@@ -8,7 +8,7 @@
   <title>Zexi Zhang</title>
   <meta
     name="description"
-    content="Zexi (Jesse) Zhang — MRes student in AI & Machine Learning at Imperial College London. Research on humanoid loco-manipulation and reinforcement learning."
+    content="Zexi (Jesse) Zhang — CS Ph.D. student at Imperial College London. Research on foundation models in robot learning."
   />
 
   <!-- Open Graph / social preview cards -->
@@ -17,7 +17,7 @@
   <meta property="og:title" content="Zexi &quot;Jesse&quot; Zhang" />
   <meta
     property="og:description"
-    content="MRes student in AI & Machine Learning at Imperial College London. Research on humanoid loco-manipulation and reinforcement learning."
+    content="CS Ph.D. student at Imperial College London. Research on foundation models in robot learning."
   />
   <meta property="og:image" content="https://www.nagi.fun/og.png" />
   <meta property="og:image:width" content="1200" />
@@ -26,7 +26,7 @@
   <meta name="twitter:title" content="Zexi &quot;Jesse&quot; Zhang" />
   <meta
     name="twitter:description"
-    content="MRes student in AI & ML at Imperial College London; humanoid loco-manipulation & RL."
+    content="CS Ph.D. student at Imperial College London; foundation models in robot learning."
   />
   <meta name="twitter:image" content="https://www.nagi.fun/og.png" />
 </svelte:head>
