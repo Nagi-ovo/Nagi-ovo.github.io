@@ -30,10 +30,12 @@ export const site = {
 
   // Header link row. Email is rendered separately (anti-scrape component).
   social: [
-    { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=30l1YNcAAAAJ&hl=en' },
-    { label: 'Github', href: 'https://github.com/Nagi-ovo' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/zexi-zhang-83bb20291/' },
-    { label: 'Blog', href: 'https://blog.nagi.fun' },
+    // `icon` keys into src/lib/icons. An entry with `copy` instead of `href` copies that text on click.
+    { label: 'Google Scholar', icon: 'scholar', href: 'https://scholar.google.com/citations?user=30l1YNcAAAAJ&hl=en' },
+    { label: 'GitHub', icon: 'github', href: 'https://github.com/Nagi-ovo' },
+    { label: 'X', icon: 'x', href: 'https://x.com/Nag1ovo' },
+    { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/zexi-zhang-83bb20291/' },
+    { label: 'Blog', icon: 'blog', href: 'https://blog.nagi.fun' },
   ],
 
   awards: ['Silver Medal (Top 3.63%), Kaggle LLM Prompt Recovery, 2024'],
