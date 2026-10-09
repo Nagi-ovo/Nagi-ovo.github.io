@@ -8,5 +8,11 @@ import x from './x-twitter.svg?raw';
 import linkedin from './linkedin.svg?raw';
 import wechat from './weixin.svg?raw';
 import blog from './pen-nib.svg?raw';
+import sun from './sun.svg?raw';
+import moon from './moon.svg?raw';
+import kaggleWordmark from './kaggle-wordmark.svg?raw';
+// Game marks for the hobbies line (sources noted inside each file).
+import overwatch from './overwatch.svg?raw';
+import counterstrike from './counterstrike.svg?raw';
 
-export const icons = { envelope, scholar, github, x, linkedin, wechat, blog };
+export const icons = { envelope, scholar, github, x, linkedin, wechat, blog, sun, moon, kaggleWordmark, overwatch, counterstrike };

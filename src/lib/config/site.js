@@ -2,6 +2,8 @@
 // Edit this file to change your name, intro, links, awards, hobbies, etc.
 // Structured lists (publications, experience, software) live in src/lib/data/.
 
+import { icons } from '$lib/icons/index.js';
+
 export const site = {
   name: 'Zexi "Jesse" Zhang',
   nameZh: '张泽西',
@@ -25,7 +27,7 @@ export const site = {
   community: `If you have ADHD and need someone to talk to, I'm happy to schedule a 30-minute chat
     every month. Feel free to reach out.`,
 
-  hobbies: `Bouldering, swimming, badminton, tennis, and FPS games (CS2, Overwatch, etc.). I was a
+  hobbies: `Bouldering, swimming, badminton, tennis, and FPS games <span class="nowrap">(<span class="inline-logo">${icons.counterstrike}</span>CS2</span>, <span class="nowrap"><span class="inline-logo">${icons.overwatch}</span>Overwatch</span>, etc.). I was a
     Top 500 player in Overwatch 2!`,
 
   // Header link row. Email is rendered separately (anti-scrape component).
@@ -38,7 +40,9 @@ export const site = {
     { label: 'Blog', icon: 'blog', href: 'https://blog.nagi.fun' },
   ],
 
-  awards: ['Silver Medal (Top 3.63%), Kaggle LLM Prompt Recovery, 2024'],
+  awards: [
+    `<span class="wordmark">${icons.kaggleWordmark}</span> Silver Medal (Top 3.63%), <a href="https://www.kaggle.com/competitions/llm-prompt-recovery">LLM Prompt Recovery</a>, 2024`,
+  ],
 
   teaching: [
     'TA for <i>Python Programming</i> (2024.09 - 2025.01).',

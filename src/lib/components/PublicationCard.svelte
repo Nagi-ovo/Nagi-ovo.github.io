@@ -3,6 +3,9 @@
 
   let { pub } = $props();
 
+  // "ICRA 2026" -> name in text colour, trailing year muted.
+  let [, venueName, venueYear] = $derived(pub.venue.match(/^(.*?)(\s+\d{4})?$/));
+
   function play(e) {
     const v = e.currentTarget.querySelector('video');
     if (v) v.play().catch(() => {});
@@ -41,9 +44,9 @@
     <p class="authors">
       {#each pub.authors as a, i}{i > 0 ? ', ' : ''}<span class:me={a.me}>{a.name}</span>{#if a.note}<sup>{a.note}</sup>{/if}{/each}
     </p>
-    <p class="venue">{pub.venue}</p>
+    <p class="venue">{venueName}<span class="year">{venueYear}</span></p>
     <p class="links">
-      {#each pub.links as l, i}{i > 0 ? ' / ' : ''}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex}{' / '}<button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>BibTeX</button>{/if}
+      {#each pub.links as l}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex}<button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>bibtex</button>{/if}
     </p>
     {#if pub.abstract}
       <p class="abstract">{pub.abstract}</p>
@@ -108,12 +111,8 @@
   .title :global(b) {
     font-weight: inherit;
     color: var(--accent, inherit);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .title :global(b) {
-      color: color-mix(in oklab, var(--accent, currentColor) 60%, white);
-    }
+    /* Raise lightness only, keeping hue and chroma, so the red stays red on dark. */
+    color: oklch(from var(--accent, currentColor) max(l, var(--accent-min-l)) c h);
   }
 
   .logo {
@@ -146,12 +145,30 @@
 
   .venue {
     margin: 0 0 3px;
-    font-style: italic;
+    font-weight: 600;
+    color: var(--c-text);
+  }
+
+  .venue .year {
+    font-weight: 400;
     color: var(--c-muted);
   }
 
   .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
     margin: 0 0 6px;
+  }
+
+  .links a,
+  .links .linklike {
+    color: var(--c-muted);
+  }
+
+  .links a:hover,
+  .links .linklike:hover {
+    color: var(--c-link-hover);
   }
 
   .linklike {

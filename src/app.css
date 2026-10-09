@@ -68,6 +68,13 @@
   --c-card: #fafafa;
   --c-bg: #ffffff;
 
+  /* Theme-dependent component tweaks (see the dark blocks below). */
+  --accent-min-l: 0; /* branded title letters: OKLCH lightness floor (dark mode lifts it) */
+  --mono-logo-filter: none; /* single-colour wordmarks (`mono: true`) turn white in dark mode */
+  --logo-ring: none; /* software logos get a hairline ring in dark mode */
+
+  color-scheme: light;
+
   --font: 'Lato', Verdana, Helvetica, sans-serif;
   --radius: 8px;
 
@@ -125,8 +132,7 @@ h3 {
 /* Brand mark placed before a name in {@html} text (news items). */
 .inline-logo {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  height: 1em; /* width follows the mark's own aspect ratio */
   margin-right: 0.25em;
   vertical-align: -0.14em;
   color: var(--c-text);
@@ -134,8 +140,24 @@ h3 {
 
 .inline-logo svg {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
+  fill: currentColor;
+}
+
+/* Keeps an inline logo on the same line as the name it belongs to. */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Brand wordmark standing in for a word in running text. The Kaggle mark's
+   baseline sits at 47.2 of its 63.2 height: size it so the ascenders match the
+   text's cap height and drop the descenders below the baseline. */
+.wordmark svg {
+  display: inline-block;
+  height: 0.98em;
+  width: auto;
+  vertical-align: -0.25em;
 }
 
 /* Address is stored reversed in the markup and flipped back with CSS; the
@@ -150,16 +172,38 @@ h3 {
   display: none;
 }
 
-/* ── Dark mode (follows system preference) ─────────────────────────── */
+/* ── Dark mode ──────────────────────────────────────────────────────────
+   Follows the system unless the visitor picked a theme (ThemeToggle sets
+   <html data-theme>). The two blocks carry the same values: one for an
+   explicit choice, one for the system preference when no choice was made. */
+:root[data-theme='dark'] {
+  --c-text: #e6e6e6;
+  --c-muted: #9a9a9a;
+  --c-faint: #6f6f6f;
+  --c-link: #d97757; /* Claude orange */
+  --c-link-hover: #eba58b;
+  --c-border: #2c2c2c;
+  --c-card: #1b1b1b;
+  --c-bg: #141414;
+  --accent-min-l: 0.65;
+  --mono-logo-filter: brightness(0) invert(1);
+  --logo-ring: 0 0 0 1px var(--c-border);
+  color-scheme: dark;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --c-text: #e6e6e6;
     --c-muted: #9a9a9a;
     --c-faint: #6f6f6f;
-    --c-link: #6bb0ec;
-    --c-link-hover: #f0a85a;
+    --c-link: #d97757; /* Claude orange */
+    --c-link-hover: #eba58b;
     --c-border: #2c2c2c;
     --c-card: #1b1b1b;
     --c-bg: #141414;
+    --accent-min-l: 0.65;
+    --mono-logo-filter: brightness(0) invert(1);
+    --logo-ring: 0 0 0 1px var(--c-border);
+    color-scheme: dark;
   }
 }

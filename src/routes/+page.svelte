@@ -75,7 +75,7 @@
       <li>{@html t}</li>
     {/each}
   </ul>
-  <p><strong>Hobbies:</strong> {site.hobbies}</p>
+  <p><strong>Hobbies:</strong> {@html site.hobbies}</p>
 </Section>
 
 <Section title="Contact">

@@ -1,5 +1,6 @@
 <script>
   import '../app.css';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 
   let { children } = $props();
 </script>
@@ -30,6 +31,8 @@
   />
   <meta name="twitter:image" content="https://www.nagi.fun/og.png" />
 </svelte:head>
+
+<ThemeToggle />
 
 <main class="container">
   {@render children()}

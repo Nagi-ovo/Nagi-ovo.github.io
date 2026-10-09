@@ -4,6 +4,7 @@
 export const education = [
   {
     logo: '/images/badges/ic-new.png',
+    mono: true, // single-colour wordmark: rendered white in dark mode
     org: 'Imperial College London',
     date: '2026.10 - Present',
     role: 'Ph.D. in Computer Science',
@@ -11,6 +12,7 @@ export const education = [
   },
   {
     logo: '/images/badges/ic-new.png',
+    mono: true, // single-colour wordmark: rendered white in dark mode
     org: 'Imperial College London',
     date: '2025.09 - 2026.09',
     role: 'M.Res. in AI & Machine Learning',

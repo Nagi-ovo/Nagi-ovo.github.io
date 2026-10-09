@@ -21,10 +21,11 @@ export const publications = [
     ],
     venue: 'arXiv 2026',
     links: [
+      { label: 'project', href: 'https://bigym2.github.io' },
       { label: 'arXiv', href: 'https://arxiv.org/abs/2610.07594' },
-      { label: 'project page', href: 'https://bigym2.github.io' },
       { label: 'code', href: 'https://github.com/swirl-uk/BiGym2' },
       { label: 'dataset', href: 'https://huggingface.co/datasets/SWIRL-Lab/bigym-g1-native60' },
+      { label: 'video', href: 'https://www.bilibili.com/video/BV1dCpp6DEQn/' },
     ],
     abstract:
       'A household loco-manipulation benchmark for the Unitree G1: 20 tasks with native VR demos under closed-loop whole-body control, evaluating VLA fine-tuning, imitation learning, demo-driven RL and coding agents through one interface.',
@@ -55,8 +56,8 @@ export const publications = [
     ],
     venue: 'ICRA 2026',
     links: [
+      { label: 'project', href: 'https://apex-bjut.github.io/Taga-VLM/' },
       { label: 'arXiv', href: 'https://arxiv.org/abs/2603.02972' },
-      { label: 'project page', href: 'https://apex-bjut.github.io/Taga-VLM/' },
       { label: 'code', href: 'https://github.com/APEX-BJUT/Taga-VLM' },
     ],
     abstract:
