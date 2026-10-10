@@ -8,7 +8,7 @@ export const education = [
     org: 'Imperial College London',
     date: '2026.10 - Present',
     role: 'Ph.D. in Computer Science',
-    note: 'Advisor: Prof. <a href="https://stepjam.github.io/">Stephen James</a>',
+    note: 'Advisor: <a href="https://stepjam.github.io/">Stephen James</a>',
   },
   {
     logo: '/images/badges/ic-new.png',

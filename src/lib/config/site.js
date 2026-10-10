@@ -13,7 +13,7 @@ export const site = {
   intro: `I am a CS Ph.D. student at
     <a href="https://www.imperial.ac.uk/">Imperial College London</a> and a member of
     the <a href="https://www.swirl.uk/home">Safe Whole-body Intelligent Robotics Lab (SWIRL)</a>,
-    advised by Prof. <a href="https://stepjam.github.io/">Stephen James</a>. My research focuses on
+    advised by <a href="https://stepjam.github.io/">Stephen James</a>. My research focuses on
     foundation models in robot learning. I also enjoy running RL on myself in the real world, where rewards
     are sparse and there is no reset button :)`,
 
