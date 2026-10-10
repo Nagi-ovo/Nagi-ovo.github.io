@@ -28,6 +28,7 @@
 </Section>
 
 <Section title="Publications">
+  <p class="legend"><sup>*</sup> equal contribution.</p>
   <div class="stack">
     {#each publications as pub}
       <PublicationCard {pub} />
@@ -106,6 +107,12 @@
   .news li,
   .bullets li {
     margin-bottom: 8px;
+  }
+
+  .legend {
+    margin: -6px 0 20px;
+    font-size: 14px;
+    color: var(--c-muted);
   }
 
   .label {

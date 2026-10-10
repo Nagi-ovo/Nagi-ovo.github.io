@@ -24,8 +24,7 @@ export const publications = [
       { label: 'project', href: 'https://bigym2.github.io' },
       { label: 'arXiv', href: 'https://arxiv.org/abs/2610.07594' },
       { label: 'code', href: 'https://github.com/swirl-uk/BiGym2' },
-      { label: 'dataset', href: 'https://huggingface.co/datasets/SWIRL-Lab/bigym-g1-native60' },
-      { label: 'video', href: 'https://www.bilibili.com/video/BV1dCpp6DEQn/' },
+      { label: 'twitter', href: 'https://x.com/Nag1ovo/status/2108230199187808367' },
     ],
     abstract:
       'A household loco-manipulation benchmark for the Unitree G1: 20 tasks with native VR demos under closed-loop whole-body control, evaluating VLA fine-tuning, imitation learning, demo-driven RL and coding agents through one interface.',

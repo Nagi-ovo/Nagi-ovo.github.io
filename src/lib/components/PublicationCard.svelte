@@ -1,15 +1,34 @@
 <script>
   import { copyText } from '$lib/utils/clipboard.js';
+  import GithubStars from './GithubStars.svelte';
 
   let { pub } = $props();
 
   // "ICRA 2026" -> name in text colour, trailing year muted.
   let [, venueName, venueYear] = $derived(pub.venue.match(/^(.*?)(\s+\d{4})?$/));
 
+  // Star count comes from the first GitHub link, usually "code".
+  let repoHref = $derived(pub.links.find((l) => /^https:\/\/github\.com\/[^/]+\/[^/]+/.test(l.href))?.href);
+  let repo = $derived(repoHref?.match(/github\.com\/([^/]+\/[^/#?]+)/)[1]);
+
   function play(e) {
     const v = e.currentTarget.querySelector('video');
     if (v) v.play().catch(() => {});
   }
+
+  // Touch screens have no hover, so play while the card is on screen instead.
+  let video = $state();
+  $effect(() => {
+    if (!video) return;
+    if (!matchMedia('(hover: none)').matches) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(
+      ([e]) => (e.isIntersecting ? video.play().catch(() => {}) : video.pause()),
+      { threshold: 0.5 }
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  });
 
   function stop(e) {
     const v = e.currentTarget.querySelector('video');
@@ -28,8 +47,10 @@
       {/if}
       {#if pub.video}
         <video
+          bind:this={video}
           class="over"
           src={pub.video}
+          poster={pub.poster ?? pub.image}
           muted
           loop
           playsinline
@@ -46,7 +67,7 @@
     </p>
     <p class="venue">{venueName}<span class="year">{venueYear}</span></p>
     <p class="links">
-      {#each pub.links as l}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex}<button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>bibtex</button>{/if}
+      {#each pub.links as l}<a href={l.href}>{l.label}</a>{/each}{#if pub.bibtex}<button class="linklike" onclick={() => copyText(pub.bibtex, 'BibTeX copied')}>bibtex</button>{/if}{#if repo}<a class="stars-link" href={repoHref}><GithubStars {repo} compact /></a>{/if}
     </p>
     {#if pub.abstract}
       <p class="abstract">{pub.abstract}</p>
@@ -157,7 +178,8 @@
   .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 14px;
+    align-items: baseline;
+    gap: 2px 12px;
     margin: 0 0 6px;
   }
 
@@ -171,8 +193,22 @@
     color: var(--c-link-hover);
   }
 
+  /* Plain inline so the count shares the row's baseline. */
+  .stars-link :global(.stars) {
+    display: inline;
+  }
+
+  .stars-link :global(.stars svg) {
+    vertical-align: -0.1em;
+  }
+
+  .stars-link:hover :global(.stars) {
+    color: var(--c-link-hover);
+  }
+
   .linklike {
     font: inherit;
+    line-height: inherit;
     color: var(--c-link);
     background: none;
     border: none;
@@ -189,19 +225,27 @@
     color: var(--c-muted);
   }
 
+  @media (hover: none) {
+    .thumb .over {
+      opacity: 1;
+    }
+  }
+
+  /* Stack on phones: a side thumbnail leaves the text a ~200px column. */
   @media (max-width: 600px) {
     .pub {
-      grid-template-columns: 110px 1fr;
-      gap: 14px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
     }
 
     .thumb {
-      width: 110px;
-      height: 110px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
     }
 
     .abstract {
-      font-size: 14px;
+      display: none;
     }
   }
 </style>
