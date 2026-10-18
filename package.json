@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && node scripts/slides-build.mjs",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''"
 	},

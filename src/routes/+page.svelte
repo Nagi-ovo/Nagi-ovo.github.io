@@ -4,6 +4,7 @@
   import PublicationCard from '$lib/components/PublicationCard.svelte';
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
   import SoftwareCard from '$lib/components/SoftwareCard.svelte';
+  import TalkCard from '$lib/components/TalkCard.svelte';
   import Email from '$lib/components/Email.svelte';
 
   import { site } from '$lib/config/site.js';
@@ -11,6 +12,7 @@
   import { publications } from '$lib/data/publications.js';
   import { education, work } from '$lib/data/experience.js';
   import { software } from '$lib/data/software.js';
+  import { talks } from '$lib/data/talks.js';
 </script>
 
 <Profile />
@@ -78,6 +80,16 @@
   </ul>
   <p><strong>Hobbies:</strong> {@html site.hobbies}</p>
 </Section>
+
+{#if talks.length}
+  <Section title="Talks">
+    <div class="stack">
+      {#each talks as talk}
+        <TalkCard {talk} />
+      {/each}
+    </div>
+  </Section>
+{/if}
 
 <Section title="Contact">
   <p><strong>Email:</strong> <Email address /></p>
