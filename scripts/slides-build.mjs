@@ -1,6 +1,6 @@
 // Runs after `vite build` (see package.json). For every talk in src/lib/data/talks.js:
-//  - adds a small toolbar to each deck in build/slides/: a link home and, when the talk has
-//    several languages, a switch that keeps the current page; Esc goes back to the page the
+//  - adds a small toolbar to each deck in build/slides/: a link home, a download of this
+//    language's PDF and, when the talk has several languages, a switch that keeps the current page; Esc goes back to the page the
 //    visitor came from on this site. The exported decks in static/ stay untouched.
 //  - writes a redirect page for every old slug in `aliases`, so links already shared keep
 //    working (page number included), plus a copy of the PDF under its old name.
@@ -39,7 +39,7 @@ function toolbar(talk, current) {
 @media (hover:none){.nf-bar.nf-idle{opacity:1;pointer-events:auto}}
 @media (prefers-reduced-motion:reduce){.nf-bar{transition:none}}
 </style>
-<nav class="nf-bar" aria-label="Site"><a href="/" title="Zexi Zhang’s homepage">← nagi.fun</a>${langs}</nav>
+<nav class="nf-bar" aria-label="Site"><a href="/" title="Zexi Zhang’s homepage">← nagi.fun</a><a href="${deckPath(talk.slug, current)}${talk.slug}.pdf" download title="Download these slides as a PDF">PDF ↓</a>${langs}</nav>
 <script>
 (function(){
 var bar=document.querySelector('.nf-bar'),t;
