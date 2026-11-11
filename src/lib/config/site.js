@@ -36,9 +36,9 @@ export const site = {
     { label: 'Google Scholar', icon: 'scholar', href: 'https://scholar.google.com/citations?user=30l1YNcAAAAJ&hl=en' },
     { label: 'GitHub', icon: 'github', href: 'https://github.com/Nagi-ovo' },
     { label: 'X', icon: 'x', href: 'https://x.com/Nag1ovo' },
-    { label: 'Bilibili', icon: 'bilibili', href: 'https://space.bilibili.com/312249633' },
     { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/zexi-zhang-83bb20291/' },
     { label: 'Blog', icon: 'blog', href: 'https://blog.nagi.fun' },
+    { label: 'Bilibili', icon: 'bilibili', href: 'https://space.bilibili.com/312249633' },
   ],
 
   awards: [
