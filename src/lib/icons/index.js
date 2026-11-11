@@ -5,6 +5,7 @@ import envelope from './envelope.svg?raw';
 import scholar from './google-scholar.svg?raw';
 import github from './github.svg?raw';
 import x from './x-twitter.svg?raw';
+import bilibili from './bilibili.svg?raw';
 import linkedin from './linkedin.svg?raw';
 import wechat from './weixin.svg?raw';
 import blog from './pen-nib.svg?raw';
@@ -15,4 +16,4 @@ import kaggleWordmark from './kaggle-wordmark.svg?raw';
 import overwatch from './overwatch.svg?raw';
 import counterstrike from './counterstrike.svg?raw';
 
-export const icons = { envelope, scholar, github, x, linkedin, wechat, blog, sun, moon, kaggleWordmark, overwatch, counterstrike };
+export const icons = { envelope, scholar, github, x, bilibili, linkedin, wechat, blog, sun, moon, kaggleWordmark, overwatch, counterstrike };
